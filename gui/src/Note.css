@@ -2,15 +2,20 @@ section {
     font-size: 0.8em;
     width: 200px;
     background: white;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.5);
     padding: 10px;
     margin: 5px;
     box-shadow: 2px 2px;
+    color: rgba(0,0,0,0.75);
     /*font-family: Menlo;*/
     /*font-family: Lucida Grande;*/
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     word-wrap: break-word;
     border-radius: 3px;
+}
+
+.note_html {
+    color: black;
 }
 
 .note_header {

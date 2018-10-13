@@ -67,12 +67,12 @@ class Note extends Component {
         </header>
         {
           this.props.image &&
-          <a href = {host + 'space/' + this.props.space + '/' + this.props.image} >
-            <img src={host + 'space/' + this.props.space + '/' + this.props.image} />
+          <a href =  {host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} >
+            <img src={host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} />
           </a>
         }
 
-        <div dangerouslySetInnerHTML={{__html: this.props.html}}></div>
+        <div className='note_html' dangerouslySetInnerHTML={{__html: this.props.html}}></div>
       </section>
     
     if (this.props.image) {
