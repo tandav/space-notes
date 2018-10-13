@@ -23,7 +23,7 @@ class SpaceHeader extends Component {
 
   render() {
     return (
-      <header>
+      <header className='space_header'>
         <button onClick={this.props.new_note}>
           <img className='button_icon' align='center' src='/new.png'/>
           new note
