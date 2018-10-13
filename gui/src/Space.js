@@ -51,6 +51,19 @@ class Space extends Component {
       }))
   }
 
+  empty_note() {
+    let opts = { 
+      method: 'POST',
+    }
+    fetch(host + `${this.props.match.params.space}/empty_note`, opts)
+      .then(response => { if (response.ok) return response.json()})
+      .then(new_note_json => this.setState(prevState => {
+        return {
+          notes: [...prevState.notes, new_note_json]
+        }
+      }))
+  }
+
 
   new_link_note() {
     const new_space_name = window.prompt('Enter new space name')
@@ -163,6 +176,7 @@ class Space extends Component {
           <SpaceHeader 
             space ={this.props.match.params.space}
             new_note = { () => this.new_note() }
+            empty_note = { () => this.empty_note() }
             new_link_note = { () => this.new_link_note() }
             delete_space = { () => this.delete_space() }
           />

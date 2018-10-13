@@ -28,6 +28,10 @@ class SpaceHeader extends Component {
           <img className='button_icon' align='center' src='/new.png'/>
           new note
         </button>
+        <button onClick={this.props.empty_note}>
+          {/* <img className='button_icon' align='center' src='/new.png'/> */}
+          empty note
+        </button>
         <button onClick={this.props.new_link_note}>
           <img className='button_icon' align='center' src='/link.png'/>
           new link note

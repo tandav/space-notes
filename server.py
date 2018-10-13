@@ -58,6 +58,23 @@ def create_note(space):
     })
 
 
+@app.route('/<space>/empty_note', methods=['POST'])
+def create_empty_note(space):
+    hash = b2a_hex(os.urandom(8)).decode('utf-8')
+
+    note_dir = f'{SPACES_DIR}/{space}/notes/{hash}'
+
+    os.makedirs(note_dir)
+
+    new_html = f'{note_dir}/{hash}.html'
+    open(new_html, 'x').close() # x mode: if file exist, raise an error
+
+    return jsonify({
+        'hash': hash,  
+        'html': '',
+    })
+
+
 
 @app.route('/<space>/<note>', methods=['PATCH'])
 def edit_note(space, note):
