@@ -126,7 +126,7 @@ def edit_in_text_editor(file):
 def update_spaces_stats(spaces_dir):
     spaces = os.listdir(spaces_dir)
 
-    with open(f'{spaces_dir}/all/all.html', 'w') as index:
+    with open(f'{spaces_dir}/all/notes/all/all.html', 'w') as index:
         index.write('<ol>\n')
         for space in spaces:
             if space != '.DS_Store':
