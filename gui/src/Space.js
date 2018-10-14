@@ -7,6 +7,10 @@ import { Redirect } from 'react-router-dom'
 import './Space.css'
 import NotFound from './NotFound';
 
+
+// https://github.com/reactjs/rfcs/issues/26#issuecomment-365744134
+// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
 class Space extends Component {
   state = {
     notes: undefined,
@@ -14,26 +18,42 @@ class Space extends Component {
     selectedNotes: new Set([]),
     redirect: '',
     page_not_found: false,
+    space: undefined,
+  }
+
+  fetch_space(space) {
+    // fetch files and notes of current space
+    fetch(host + 'space/' + space)
+      .then(response => { 
+        if (response.ok) { return response.json() }
+        else if (response.status === 404) { this.setState({page_not_found: true}) }
+      })
+      .then(json => this.setState({
+        notes: json.notes,
+        files: json.files,
+      }))
   }
 
   componentDidMount() {
-    document.title = this.props.match.params.space
-    fetch(host + 'space/' + this.props.match.params.space)
-    .then(response => { 
-      if (response.ok) {
-        return response.json()
+    this.fetch_space(this.props.match.params.space)
+  }
+
+  static getDerivedStateFromProps(next_props, prev_state)  {
+    if (next_props.match.params.space !== prev_state.space) {
+      return {
+        space: next_props.match.params.space,
+        notes: undefined,
+        files: undefined,
       }
-      else if (response.status === 404) {
-        this.setState({page_not_found: true})
-        // this.setState({redirect: '/404'})
-        // show(404 space not found, redirecting to root space...)
-        // redirect(root)
-      }
-    })
-    .then(json => this.setState({
-      notes: json.notes,
-      files: json.files,
-    }))
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.state.space !== prevProps.match.params.space) {
+      // this.fetch_space(this.props.match.params.space)
+      this.fetch_space(this.state.space)
+    }
   }
 
   new_note() {
@@ -171,6 +191,7 @@ class Space extends Component {
       return <Redirect to={this.state.redirect} />
     }
     else {
+      document.title = this.props.match.params.space
       return this.state.notes ? (
         <div className='space'>
           <SpaceHeader 

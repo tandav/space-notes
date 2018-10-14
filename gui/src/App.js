@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Space from './Space'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 import { host } from './index'
 import './App.css'
 import NotFound from './NotFound'
@@ -33,8 +33,7 @@ class App extends Component {
     return (
       <div className='App'>
         <header>
-          {/* <Link to='/space/root'><button>root</button></Link> */}
-          <button><a href='/space/root'>root</a></button>
+          <Link to='/space/root'><button>root</button></Link>
           <button onClick={() => this.new_space()}>
             <img className='button_icon' align='center' src='/new.png' alt=''/>
             new space
