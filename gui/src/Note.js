@@ -68,7 +68,7 @@ class Note extends Component {
         {
           this.props.image &&
           <a href =  {host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} >
-            <img src={host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} />
+            <img src={host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} alt='' />
           </a>
         }
 

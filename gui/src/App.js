@@ -36,7 +36,7 @@ class App extends Component {
           {/* <Link to='/space/root'><button>root</button></Link> */}
           <button><a href='/space/root'>root</a></button>
           <button onClick={() => this.new_space()}>
-            <img className='button_icon' align='center' src='/new.png'/>
+            <img className='button_icon' align='center' src='/new.png' alt=''/>
             new space
           </button>
         </header>

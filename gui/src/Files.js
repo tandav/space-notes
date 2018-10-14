@@ -29,9 +29,9 @@ class Files extends Component {
         this.props.files.map(file => 
           <tr className='file_row' key={file.name} >
             <td>{ file.type === 'file' ?
-              <img className='file_folder_icon' align='center' src='/file.png'/>
+              <img className='file_folder_icon' align='center' src='/file.png' alt=''/>
               :
-              <img className='file_folder_icon' align='center' src='/folder.png'/>
+              <img className='file_folder_icon' align='center' src='/folder.png' alt=''/>
             }
           </td>
           <td>{ file.name }</td>
@@ -41,6 +41,7 @@ class Files extends Component {
               align='center' 
               src='/finder.png'
               onClick={ () => this.open_in_finder(file.name) }
+              alt=''
             />
           </td>                      
           <td>
@@ -51,6 +52,7 @@ class Files extends Component {
                 align='center'
                 src='/terminal.png'
                 onClick={ () => this.open_in_terminal(file.name) }
+                alt=''
               />
             }
           </td>
@@ -60,6 +62,7 @@ class Files extends Component {
               align='center'
               src='/sublime.png'
               onClick={ () => this.open_in_sublime(file.name) }
+              alt=''
             />
           </td>
         </tr>
