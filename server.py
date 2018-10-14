@@ -6,7 +6,7 @@ import shutil
 from helpers import *
 
 
-SPACES_DIR = '/Users/tandav/Documents/108/spaces'
+SPACES_DIR = '/Users/tandav/Documents/spaces'
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
