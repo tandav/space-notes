@@ -2,6 +2,7 @@ import './Note.css'
 import React, { Component } from 'react'
 import { host } from './index'
 import Dropzone from 'react-dropzone'
+import { Link } from 'react-router-dom'
 
 class Note extends Component {
   state = { dropzoneActive: false }
@@ -54,7 +55,20 @@ class Note extends Component {
       textAlign: 'center',
       color: '#fff'
     }
-    // hash = 
+
+
+    let html = this.props.html
+
+
+    let lines = html.split('\n')
+    let first_line = lines[0]
+    let linked_note_space = ''
+    
+    // linked notes starts with [space] lines
+    if (/^\[.*\]$/.test(first_line)) {
+      linked_note_space = first_line.slice(1, -1)
+      html = lines.slice(1).join('\n')
+    }
 
     const noteItem = 
       <section>
@@ -71,8 +85,8 @@ class Note extends Component {
             <img src={host + 'space/' + this.props.space + '/note/' + this.props.hash + '/' + this.props.image} alt='' />
           </a>
         }
-
-        <div className='note_html' dangerouslySetInnerHTML={{__html: this.props.html}}></div>
+        {linked_note_space && <Link to={'/space/' + linked_note_space}><h1>{linked_note_space}</h1></Link>}
+        <div className='note_html' dangerouslySetInnerHTML={{__html: html}}></div>
       </section>
     
     if (this.props.image) {
