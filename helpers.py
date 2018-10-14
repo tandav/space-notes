@@ -22,8 +22,9 @@ def get_notes(space_dir):
         png  = f'{space_dir}/notes/{note}/{note}.png'
         jpg  = f'{space_dir}/notes/{note}/{note}.jpg'
         jpeg = f'{space_dir}/notes/{note}/{note}.jpeg'
+        svg = f'{space_dir}/notes/{note}/{note}.svg'
 
-        for ext in (png, jpg, jpeg):
+        for ext in (png, jpg, jpeg, svg):
             if os.path.exists(ext):
                 note_item['image'] = os.path.basename(ext)
                 break

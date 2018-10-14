@@ -34,7 +34,7 @@ class Note extends Component {
       }
     }
     else {
-      window.alert('You can upload only PNG, JPG')
+      window.alert('You can upload only PNG, JPG, SVG')
     }
     this.setState({ dropzoneActive: false })
   }
@@ -83,7 +83,7 @@ class Note extends Component {
         <Dropzone 
           disableClick
           style={{position: "relative"}}
-          accept='image/jpeg, image/png'
+          accept='image/jpeg, image/png, image/svg+xml'
           onDragEnter={this.onDragEnter.bind(this)}
           onDragLeave={this.onDragLeave.bind(this)}
           onDrop={(accepted, rejected) => this.upload_image(accepted, rejected)}
