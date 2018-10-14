@@ -106,7 +106,7 @@ def new_link_note(space, new_space_name):
 
     os.makedirs(link_note_dir)
 
-    link_note_html = f'<a href=\'{new_space_name}\'><h1>{new_space_name}</h1></a>\n'
+    link_note_html = f'[{new_space_name}]'
     with open(f'{link_note_dir}/{link_note_hash}.html', 'x') as link_note:
         link_note.write(link_note_html)
 
