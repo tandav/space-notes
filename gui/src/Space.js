@@ -87,20 +87,21 @@ class Space extends Component {
 
   new_link_note() {
     const new_space_name = window.prompt('Enter new space name')
-
-    let opts = { 
-      method: 'POST',
-    }
-    fetch(host + 'space/' + this.props.match.params.space + '/' + new_space_name, opts)
-      .then(response => { if (response.ok) return response.json()})
-      .then(link_note_json => {
-        this.setState(prevState => {
-          return {
-            notes: [...prevState.notes, link_note_json]
-          }
+    if (new_space_name) {
+      let opts = { 
+        method: 'POST',
+      }
+      fetch(host + 'space/' + this.props.match.params.space + '/' + new_space_name, opts)
+        .then(response => { if (response.ok) return response.json()})
+        .then(link_note_json => {
+          this.setState(prevState => {
+            return {
+              notes: [...prevState.notes, link_note_json]
+            }
+          })
+          window.open(`/space/${new_space_name}`)
         })
-        window.open(`/space/${new_space_name}`)
-      })
+    }
   }
 
   delete_space() {

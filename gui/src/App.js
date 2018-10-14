@@ -8,14 +8,11 @@ import NotFound from './NotFound'
 class App extends Component {
 
   new_space() {
-
     const new_space_name = window.prompt('Enter new space name')
-
-    let opts = { 
-      method: 'POST',
-    }
-    
     if (new_space_name) {
+      let opts = { 
+        method: 'POST',
+      }
       fetch(host + new_space_name, opts)
       .then(response => {
         if (response.ok) {
