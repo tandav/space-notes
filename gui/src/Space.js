@@ -163,6 +163,10 @@ class Space extends Component {
     }
   }
 
+  openNoteInFinder(hash) {
+    fetch(host + 'space/' + this.props.match.params.space + '/note/' + hash + '/finder')
+  }
+
   add_image_to_state(note_hash, extension) {
     console.log(note_hash, extension)
     // const hash = image.split('.').slice(0, -1).join('.')
@@ -213,6 +217,7 @@ class Space extends Component {
                   image = {note.image}
                   editNote = {() => this.edit(note.hash)}
                   deleteNote = {() => this.delete(note.hash)}
+                  openNoteInFinder = {() => this.openNoteInFinder(note.hash)}
                   selectedNotes = {this.state.selectedNotes}
                   selectionChanged ={() => this.note_select_handle(note.hash)}
                   upload_image = {this.upload_image}

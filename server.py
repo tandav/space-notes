@@ -150,6 +150,11 @@ def open_space_in_terminal(space):
     os.system(f'open -a Terminal {SPACES_DIR}/{space}')
     return Response(None, 200)
 
+@app.route('/space/<space>/note/<note>/finder', methods=['GET'])
+def open_note_in_finder(space, note):
+    os.system(f'open {SPACES_DIR}/{space}/notes/{note}')
+    return Response(None, 200)
+
 @app.route('/space/<space>/eval/<script>', methods=['GET'])
 def eval_space_script(space, script):
     os.system(f'bash {SPACES_DIR}/{space}/{script}.sh')

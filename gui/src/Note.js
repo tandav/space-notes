@@ -76,7 +76,8 @@ class Note extends Component {
           {/* <input type='checkbox' checked={selectedNotes.has(hash)} onChange={selectionChanged}></input> */}
           <code>{this.props.hash}</code>
           <a onClick={this.props.editNote}><code>[edit]</code></a>
-          <a onClick={this.props.deleteNote}><code>[del]</code></a>
+          <a onClick={this.props.deleteNote}><code>del</code></a>
+          <a onClick={this.props.openNoteInFinder}><code>f</code></a>
           {/* <hr/> */}
         </header>
         {
