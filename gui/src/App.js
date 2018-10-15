@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <header>
+        <header className='app_header'>
           <Link to='/space/root'><button>root</button></Link>
           <button onClick={() => this.new_space()}>
             <img className='button_icon' align='center' src='/new.png' alt=''/>

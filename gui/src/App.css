@@ -16,6 +16,8 @@ a:hover {
 }
 
 button {
+  display:flex;
+  align-items: center;
   background-color: white;
   /* color: green; */
   padding: 3px 4px 3px 4px;
@@ -37,4 +39,8 @@ button:hover {
 
 .space {
   /* border: 1px solid blueviolet; */
+}
+
+.app_header {
+  display: flex;
 }
