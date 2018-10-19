@@ -16,6 +16,7 @@ class Files extends Component {
   open_in_finder  (filename) { this.eval_from_space(`open -R "${filename}"`) }
   open_in_terminal(filename) { this.eval_from_space(`open -a Terminal "${filename}"`) }
   open_in_sublime (filename) { this.eval_from_space(`open -a "Sublime Text" "${filename}"`) }
+  open_in_jupyter (filename) { this.eval_from_space('open ${PWD/$HOME/http://localhost:8888/notebooks}/' + filename) }
 
   render() {
     return (
@@ -64,6 +65,19 @@ class Files extends Component {
               onClick={ () => this.open_in_sublime(file.name) }
               alt=''
             />
+          </td>
+          <td>
+            {
+              file.name.split('.').pop() === 'ipynb' &&
+              <img
+                className='file_folder_icon'
+                align='center'
+                src='/jupyter.png'
+                onClick={ () => this.open_in_jupyter(file.name) }
+                alt=''
+              />   
+            }
+         
           </td>
         </tr>
         )

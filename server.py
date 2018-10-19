@@ -150,6 +150,11 @@ def open_space_in_terminal(space):
     os.system(f'open -a Terminal {SPACES_DIR}/{space}')
     return Response(None, 200)
 
+@app.route('/space/<space>/sublime', methods=['GET'])
+def open_space_in_sublime(space):
+    os.system(f'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl {SPACES_DIR}/{space}')
+    return Response(None, 200)
+
 @app.route('/space/<space>/note/<note>/finder', methods=['GET'])
 def open_note_in_finder(space, note):
     os.system(f'open {SPACES_DIR}/{space}/notes/{note}')
