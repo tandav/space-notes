@@ -43,7 +43,7 @@ li img {
 }
 
 code {
-    font-family: Menlo;
+    font-family: 'SF Mono', Menlo;
     font-size: 0.8em;
     padding: 1px 3px 1px 3px;
     /*background: rgba(0,0,0,0.15);*/
@@ -52,7 +52,7 @@ code {
 }
 
 pre {
-    font-family: Menlo;
+    font-family: 'SF Mono', Menlo;
     font-size: 0.8em;
     padding: 1px 3px 1px 3px;
     background: #f6f8fa;
