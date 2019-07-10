@@ -147,7 +147,7 @@ def open_space_in_finder(space):
     
 @app.route('/space/<space>/terminal', methods=['GET'])
 def open_space_in_terminal(space):
-    os.system(f'open -a Terminal {SPACES_DIR}/{space}')
+    os.system(f'open -a iTerm {SPACES_DIR}/{space}')
     return Response(None, 200)
 
 @app.route('/space/<space>/sublime', methods=['GET'])
