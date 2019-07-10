@@ -68,7 +68,7 @@ class Files extends Component {
           </td>
           <td>
             {
-              file.name.split('.').pop() === 'ipynb' &&
+              (file.name.split('.').pop() === 'ipynb' || file.type === 'folder') &&
               <img
                 className='file_folder_icon'
                 align='center'
