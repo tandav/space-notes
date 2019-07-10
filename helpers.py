@@ -34,21 +34,17 @@ def get_notes(space_dir):
 
 
 def get_files(dir):
-
     items   = []
     files   = []
     folders = []
-
     for item in os.listdir(dir):
         if item != '.DS_Store':
             if os.path.isfile(f'{dir}/{item}'):
                 files.append({ 'name' : item, 'type' : 'file' })
             else:
                 folders.append({ 'name' : item, 'type' : 'folder' })
-
     items.extend(folders)
     items.extend(files)
-
     return items
 
 def edit_in_text_editor(file):

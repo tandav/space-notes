@@ -22,7 +22,6 @@ class Files extends Component {
     return (
       <div className='files'>
       <hr/>
-      <h2>Files</h2>
       <table className='filelist'>
       <tbody>
 
